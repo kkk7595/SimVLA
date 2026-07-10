@@ -1,0 +1,85 @@
+{
+  "dataset_name": "libero_hdf5",
+  "data_dir": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas",
+  "datalist": [
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the alphabet soup and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the bbq sauce and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_butter_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the butter and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the chocolate pudding and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the cream cheese and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the ketchup and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_milk_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the milk and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the orange juice and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the salad dressing and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    },
+    {
+      "path": "/root/gpufree-data/RLinf/rlinf/models/embodiment/simvla/datasets/metas/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket_demo.hdf5",
+      "task": "pick up the tomato sauce and place it in the basket",
+      "subset": "libero_object",
+      "num_demos": 50
+    }
+  ],
+  "num_files": 10,
+  "num_episodes": 500,
+  "subsets": [
+    "libero_object"
+  ],
+  "subset_stats": {
+    "libero_object": {
+      "num_files": 10,
+      "num_demos": 500
+    }
+  },
+  "observation_key": [
+    "obs/agentview_rgb",
+    "obs/eye_in_hand_rgb"
+  ],
+  "action_key": "actions",
+  "state_dim": 8,
+  "action_dim": 7,
+  "fps": 10
+}

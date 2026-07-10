@@ -1,0 +1,56 @@
+{
+  "dataset_name": "franka-hdf5",
+  "data_dir": "/kaggle/input/datasets/cathycathy123",
+  "datalist": [
+    {
+      "path": "pick_the_red_cube_and_drop_it_in_the_box_demo.hdf5",
+      "task": "pick the red cube and drop it in the box",
+      "subset": "franka-l6-20260503",
+      "num_demos": 52
+    },
+    {
+      "path": "pick_the_yellow_cube_and_drop_it_in_the_box_demo.hdf5",
+      "task": "pick the yellow cube and drop it in the box",
+      "subset": "franka-l6-20260503",
+      "num_demos": 40
+    },
+    {
+      "path": "place_the_red_block_on_top_of_the_yellow_block_demo.hdf5",
+      "task": "place the red block on top of the yellow block",
+      "subset": "franka-l6-20260503",
+      "num_demos": 10
+    },
+    {
+      "path": "place_the_yellow_block_on_top_of_the_red_block_demo.hdf5",
+      "task": "place the yellow block on top of the red block",
+      "subset": "franka-l6-20260503",
+      "num_demos": 9
+    }
+  ],
+  "num_files": 4,
+  "num_episodes": 111,
+  "subsets": [
+    "franka-l6-20260503"
+  ],
+  "subset_stats": {
+    "franka-l6-20260503": {
+      "num_files": 4,
+      "num_demos": 111
+    }
+  },
+  "observation_key": [
+    "right/obs/agentview_rgb",
+    "right/obs/eye_in_hand_rgb",
+    "right/obs/arm_joint",
+    "right/obs/hand_joint",
+    "right/obs/ee_ori",
+    "right/obs/ee_pos"
+  ],
+  "action_key": [
+    "right/arm_actions",
+    "right/hand_actions"
+  ],
+  "state_dim": 12,
+  "action_dim": 12,
+  "fps": 30
+}

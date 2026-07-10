@@ -1,0 +1,38 @@
+{
+  "dataset_name": "franka_hdf5",
+  "data_dir": "/kaggle/input/datasets/cathycathy123",
+  "datalist": [
+    {
+      "path": "/kaggle/input/datasets/cathycathy123/franka-spatial/pick_the_red_cube_and_drop_it_in_box_demo.hdf5",
+      "task": "pick the red cube and drop it in box",
+      "subset": "franka-spatial",
+      "num_demos": 150
+    }
+  ],
+  "num_files": 1,
+  "num_episodes": 150,
+  "subsets": [
+    "franka-spatial"
+  ],
+  "subset_stats": {
+    "franka-spatial": {
+      "num_files": 1,
+      "num_demos": 150
+    }
+  },
+  "observation_key": [
+    "left/obs/agentview_rgb",
+    "left/obs/eye_in_hand_rgb",
+    "left/obs/arm_joint",
+    "left/obs/hand_joint",
+    "left/obs/ee_ori",
+    "left/obs/ee_pos"
+  ],
+  "action_key": [
+    "left/arm_actions",
+    "left/hand_actions"
+  ],
+  "state_dim": 12,
+  "action_dim": 12,
+  "fps": 30
+}
