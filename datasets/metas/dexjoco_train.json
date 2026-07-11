@@ -1,0 +1,9 @@
+{
+  "data_dir": "datasets",
+  "datalist": [
+    {
+      "subset": "",
+      "path": "test_dexjoco.h5"
+    }
+  ]
+}

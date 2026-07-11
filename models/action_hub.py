@@ -407,6 +407,86 @@ class FrankaJointActionSpace(BaseActionSpace):
         """数据后处理：对模型输出的动作进行反归一化"""
         return self.unnormalize_action(action)
 
+#kkk
+# =============================================================================
+# DexJoco Action Space (Rotation Vector)
+# =============================================================================
+@register_action("dexjoco_joint")
+class DexJocoJointActionSpace(BaseActionSpace):
+    """
+    DexJoco 动作空间类 (将轴角替换为旋转向量)
+    
+    数据结构说明:
+      - 状态(本体感知): 假设 7 维 [位置(3), 旋转向量(3), 夹爪(1)] (请根据学长数据微调)
+      - 动作: 7 维 [位置(3), 旋转向量(3), 夹爪(1)]
+    """
+    # 动作维度：从 8维 变成 7维 (旋转向量为 3维)
+    dim_action = 7
+    # 状态维度：根据实际 DexJoco 采集的数据维度调整，这里先写 7
+    dim_proprio = 7
+    
+    # 夹爪索引
+    gripper_idx = (6,)
+
+    def __init__(
+        self,
+        norm_stats_path: Optional[str] = None,
+        use_quantile_norm: bool = False,
+    ):
+        super().__init__()
+        self.use_quantile_norm = use_quantile_norm
+        self.state_norm_stats: Optional[NormStats] = None
+        self.action_norm_stats: Optional[NormStats] = None
+        
+        if norm_stats_path:
+            self.load_norm_stats(norm_stats_path)
+            
+    # ------ 以下代码可以直接复用 FrankaJointActionSpace 的归一化逻辑 ------
+    def load_norm_stats(self, path: str):
+        stats_dict = load_norm_stats(path)
+        if "state" in stats_dict:
+            self.state_norm_stats = stats_dict["state"]
+        if "actions" in stats_dict:
+            self.action_norm_stats = stats_dict["actions"]
+            
+    def to(self, device):
+        if self.state_norm_stats is not None: self.state_norm_stats.to(device)
+        if self.action_norm_stats is not None: self.action_norm_stats.to(device)
+        return super().to(device)
+    
+    def _normalize_with_stats(self, x: torch.Tensor, stats: NormStats) -> torch.Tensor:
+        if stats.mean.device != x.device: stats.to(x.device)
+        D = x.shape[-1]
+        if self.use_quantile_norm and stats.q01 is not None and stats.q99 is not None:
+            q01, q99 = stats.q01[..., :D], stats.q99[..., :D]
+            return (x - q01) / (q99 - q01 + 1e-6) * 2.0 - 1.0
+        else:
+            mean, std = stats.mean[..., :D], stats.std[..., :D]
+            return (x - mean) / (std + 1e-6)
+    
+    def _unnormalize_with_stats(self, x: torch.Tensor, stats: NormStats) -> torch.Tensor:
+        if stats.mean.device != x.device: stats.to(x.device)
+        D = x.shape[-1]
+        if self.use_quantile_norm and stats.q01 is not None and stats.q99 is not None:
+            q01, q99 = stats.q01[..., :D], stats.q99[..., :D]
+            return (x + 1.0) / 2.0 * (q99 - q01 + 1e-6) + q01
+        else:
+            mean, std = stats.mean[..., :D], stats.std[..., :D]
+            return x * (std + 1e-6) + mean
+    
+    def normalize_state(self, x: torch.Tensor): return self._normalize_with_stats(x, self.state_norm_stats) if self.state_norm_stats else x
+    def normalize_action(self, x: torch.Tensor): return self._normalize_with_stats(x, self.action_norm_stats) if self.action_norm_stats else x
+    def unnormalize_action(self, x: torch.Tensor): return self._unnormalize_with_stats(x, self.action_norm_stats) if self.action_norm_stats else x
+    
+    def compute_loss(self, pred, target):
+        return {"velocity_loss": torch.mean(torch.square(pred - target))}
+
+    def preprocess(self, proprio, action, mode="train"):
+        return self.normalize_state(proprio), self.normalize_action(action)
+
+    def postprocess(self, action: torch.Tensor):
+        return self.unnormalize_action(action)
+    
 
 # =============================================================================
 # Exports

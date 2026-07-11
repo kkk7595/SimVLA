@@ -1,0 +1,18 @@
+09:54:14 | INFO | __main__ | 训练参数: Namespace(models=None, output_dir='./runs/simvla_dexjoco_small', smolvlm_model_path='HuggingFaceTB/SmolVLM-500M-Instruct', train_metas_path='./datasets/metas/dexjoco_train.json', batch_size=64, image_size=384, learning_rate=0.0001, learning_coef=0.1, weight_decay=0.0, betas=(0.9, 0.95), max_grad_norm=1.0, iters=200000, freeze_steps=1000, warmup_steps=0, use_cosine_decay=False, min_lr_ratio=0.1, save_interval=10000, log_interval=20, seed=0, action_mode='dexjoco_joint', num_workers=4, norm_stats_path='./norm_stats/dexjoco_norm.json', num_actions=10, wandb_project=None, wandb_api_key=None, resume=False, use_adaln=False, hidden_size=768, depth=12, num_heads=12)
+09:54:14 | INFO | __main__ | 使用的SmolVLM骨干网络: HuggingFaceTB/SmolVLM-500M-Instruct
+09:54:14 | INFO | __main__ | 输入图像尺寸: 384x384
+09:54:14 | INFO | __main__ | 使用归一化统计信息: ./norm_stats/dexjoco_norm.json
+09:54:14 | INFO | __main__ | 从配置初始化SmolVLM-VLA模型
+09:54:14 | INFO | __main__ |   smolvlm_model_path: HuggingFaceTB/SmolVLM-500M-Instruct
+09:54:14 | INFO | __main__ |   action_mode: dexjoco_joint
+09:54:14 | INFO | __main__ |   num_actions: 10
+09:54:14 | INFO | __main__ |   use_adaln: False
+10:20:08 | INFO | __main__ | 训练参数: Namespace(models=None, output_dir='./runs/simvla_dexjoco_small', smolvlm_model_path='HuggingFaceTB/SmolVLM-500M-Instruct', train_metas_path='./datasets/metas/dexjoco_train.json', batch_size=64, image_size=384, learning_rate=0.0001, learning_coef=0.1, weight_decay=0.0, betas=(0.9, 0.95), max_grad_norm=1.0, iters=200000, freeze_steps=1000, warmup_steps=0, use_cosine_decay=False, min_lr_ratio=0.1, save_interval=10000, log_interval=20, seed=0, action_mode='dexjoco_joint', num_workers=4, norm_stats_path='./norm_stats/dexjoco_norm.json', num_actions=10, wandb_project=None, wandb_api_key=None, resume=False, use_adaln=False, hidden_size=768, depth=12, num_heads=12)
+10:20:08 | INFO | __main__ | 使用的SmolVLM骨干网络: HuggingFaceTB/SmolVLM-500M-Instruct
+10:20:08 | INFO | __main__ | 输入图像尺寸: 384x384
+10:20:08 | INFO | __main__ | 使用归一化统计信息: ./norm_stats/dexjoco_norm.json
+10:20:08 | INFO | __main__ | 从配置初始化SmolVLM-VLA模型
+10:20:08 | INFO | __main__ |   smolvlm_model_path: HuggingFaceTB/SmolVLM-500M-Instruct
+10:20:08 | INFO | __main__ |   action_mode: dexjoco_joint
+10:20:08 | INFO | __main__ |   num_actions: 10
+10:20:08 | INFO | __main__ |   use_adaln: False

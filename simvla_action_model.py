@@ -275,7 +275,10 @@ class SimVLAConfig(PretrainedConfig):
 
         # ========== 动作/本体感受配置 ==========
         self.num_actions = cfg.num_actions if cfg is not None else 10
-        self.action_mode = cfg.action_mode if cfg is not None else "libero_joint"
+        #kkk
+        #self.action_mode = cfg.action_mode if cfg is not None else "libero_joint"
+        #训练只跑 DexJoco 数据，可以暂时改成
+        self.action_mode = cfg.action_mode if cfg is not None else "dexjoco_joint"
         self.use_proprio = cfg.use_proprio if cfg is not None else True
 
         # ========== DiT/AdaLN配置 ==========
@@ -304,8 +307,12 @@ class SimVLAConfig(PretrainedConfig):
  
         # ========== 动作相关超参数 ==========
         self.action_chunk = cfg.action_chunk if cfg is not None else 10  # 与num_actions默认值一致
-        self.action_env_dim = cfg.action_env_dim if cfg is not None else 12
-        self.action_dim = cfg.action_dim if cfg is not None else 12  # 补充原配置中遗漏的action_dim
+        #kkk
+        #self.action_env_dim = cfg.action_env_dim if cfg is not None else 12
+        #self.action_dim = cfg.action_dim if cfg is not None else 12  # 补充原配置中遗漏的action_dim
+        # 修改: 默认值改为 7 (匹配 DexJoco 旋转向量动作维度)
+        self.action_env_dim = cfg.action_env_dim if cfg is not None else 7
+        self.action_dim = cfg.action_dim if cfg is not None else 7
         self.num_steps = cfg.num_steps if cfg is not None else 10
 
         # ========== 训练配置 ==========
