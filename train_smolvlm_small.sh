@@ -18,7 +18,7 @@ echo "   output_dir: $OUTPUT_DIR"
 echo "   resume_ckpt: ${RESUME_CKPT:-'None (training from scratch)'}"
 
 # GPU配置：请根据你的实际GPU数量修改。如果只有1张卡，写 0
-export CUDA_VISIBLE_DEVICES=0,1,2,3
+export CUDA_VISIBLE_DEVICES=0
 
 export TF_CPP_MIN_LOG_LEVEL=2
 export HF_ENDPOINT=https://hf-mirror.com  # 强制使用国内镜像下载模型
@@ -105,7 +105,7 @@ echo "============================================================"
 # ⚠️ 重要提示：如果你的服务器只有 1 张显卡，请把下面的 --num_processes=4 改为 --num_processes=1
 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
 accelerate launch \
-    --num_processes=4 \
+    --num_processes=1 \
     --main_process_port 29504 \
     --mixed_precision bf16 \
     train_smolvlm.py ${ARGS}
