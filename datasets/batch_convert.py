@@ -18,8 +18,8 @@ if not hf_token:
     raise ValueError("⚠️ 错误：未找到环境变量 HF_TOKEN，请确保已在 Secrets 中设置！")
 
 # === 分批配置 ===
-BATCH_SIZE = 50
-BATCH_ID = 19  # ⚠️ 每跑完一批，手动+1并重新运行
+BATCH_SIZE = 100
+BATCH_ID = 20  # ⚠️ 每跑完一批，手动+1并重新运行
 
 # === 初始化 ===
 login(token=hf_token)
@@ -34,7 +34,7 @@ all_files = api.list_repo_files(repo_id=REPO_ID, repo_type="dataset")
 episodes_set = sorted(list(set([f.split("/replay.zarr")[0] for f in all_files if "replay.zarr" in f])))
 
 # 2. 分片
-start_idx = (BATCH_ID-10) * BATCH_SIZE + 200
+start_idx = (BATCH_ID-20) * BATCH_SIZE + 700
 end_idx = min(start_idx + BATCH_SIZE, len(episodes_set))
 episodes_to_convert = episodes_set[start_idx:end_idx]
 total_eps = len(episodes_to_convert)
