@@ -310,9 +310,9 @@ class SimVLAConfig(PretrainedConfig):
         #kkk
         #self.action_env_dim = cfg.action_env_dim if cfg is not None else 12
         #self.action_dim = cfg.action_dim if cfg is not None else 12  # 补充原配置中遗漏的action_dim
-        # 修改: 默认值改为 7 (匹配 DexJoco 旋转向量动作维度)
-        self.action_env_dim = cfg.action_env_dim if cfg is not None else 7
-        self.action_dim = cfg.action_dim if cfg is not None else 7
+        # 修改: 默认值改为 44 (匹配 DexJoco 旋转向量动作维度)
+        self.action_env_dim = cfg.action_env_dim if cfg is not None else 44
+        self.action_dim = cfg.action_dim if cfg is not None else 44
         self.num_steps = cfg.num_steps if cfg is not None else 10
 
         # ========== 训练配置 ==========

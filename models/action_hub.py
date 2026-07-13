@@ -416,14 +416,9 @@ class DexJocoJointActionSpace(BaseActionSpace):
     """
     DexJoco 动作空间类 (将轴角替换为旋转向量)
     
-    数据结构说明:
-      - 状态(本体感知): 假设 7 维 [位置(3), 旋转向量(3), 夹爪(1)] (请根据学长数据微调)
-      - 动作: 7 维 [位置(3), 旋转向量(3), 夹爪(1)]
     """
-    # 动作维度：从 8维 变成 7维 (旋转向量为 3维)
-    dim_action = 7
-    # 状态维度：根据实际 DexJoco 采集的数据维度调整，这里先写 7
-    dim_proprio = 7
+    dim_action = 44
+    dim_proprio = 61
     
     # 夹爪索引
     gripper_idx = (6,)

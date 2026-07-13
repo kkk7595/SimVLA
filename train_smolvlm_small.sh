@@ -99,7 +99,7 @@ echo "============================================================"
 echo "SmolVLM backbone: ${SMOLVLM_MODEL}"
 echo "Normalization stats: $NORM_STATS_PATH"
 echo "Action mode: dexjoco_joint"
-echo "Action Dim: 7"
+echo "Action Dim: 44"
 echo "============================================================"
 
 # ⚠️ 重要提示：如果你的服务器只有 1 张显卡，请把下面的 --num_processes=4 改为 --num_processes=1
