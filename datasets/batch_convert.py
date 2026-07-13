@@ -19,8 +19,7 @@ if not hf_token:
 
 # === 分批配置 ===
 BATCH_SIZE = 50
-BATCH_ID = 10  # ⚠️ 每跑完一批，手动+1并重新运行
-START_IDX = 200    # 👈 新增：明确指定从第 200 个文件开始处理（因为之前已经跑了 0~199）
+BATCH_ID = 11  # ⚠️ 每跑完一批，手动+1并重新运行
 
 # === 初始化 ===
 login(token=hf_token)
