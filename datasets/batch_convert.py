@@ -18,8 +18,8 @@ if not hf_token:
     raise ValueError("⚠️ 错误：未找到环境变量 HF_TOKEN，请确保已在 Secrets 中设置！")
 
 # === 分批配置 ===
-BATCH_SIZE = 20
-BATCH_ID = 9  # ⚠️ 每跑完一批，手动+1并重新运行
+BATCH_SIZE = 50
+BATCH_ID = 10  # ⚠️ 每跑完一批，手动+1并重新运行
 
 # === 初始化 ===
 login(token=hf_token)
