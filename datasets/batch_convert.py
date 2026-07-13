@@ -19,7 +19,7 @@ if not hf_token:
 
 # === 分批配置 ===
 BATCH_SIZE = 100
-BATCH_ID = 21  # ⚠️ 每跑完一批，手动+1并重新运行
+BATCH_ID = 22  # ⚠️ 每跑完一批，手动+1并重新运行
 
 # === 初始化 ===
 login(token=hf_token)
